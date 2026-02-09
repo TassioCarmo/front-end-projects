@@ -1,0 +1,78 @@
+@import url("reset.css");
+
+
+/* || Variables  */
+
+:root {
+    /* Typography */
+    --font-family: 'Amatic SC', cursive;
+
+    /* COLORS */
+    --background-color-header: black;
+    --background-color-main: orange;
+    --background-color-footer: orange;
+
+
+    --font-color-header: white;
+    --font-color-body: black;
+    /*  BORDERS */
+
+}
+
+/* || UTILITY CLASSES */
+
+/* || GENERAL STYLES */
+
+
+/* || HEADER */
+header {
+    background-color: var(--background-color-header);
+    text-align: center;
+    padding: 2rem;
+}
+
+h1 {
+    color: var(--font-color-header);
+    font-family: var(--font-family);
+    font-size: x-large;
+    font-weight: 900;
+}
+
+/* || MAIN */
+
+.food-images-container {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    padding: 2em;
+}
+
+
+/* Media query for mobile screens */
+@media screen and (max-width: 1024px) {
+    .food-images-container {
+        flex-direction: column;
+        /* Change flex direction to column */
+        align-items: center;
+        /* Align items vertically in the center */
+        justify-content: center;
+        /* Center items horizontally */
+        padding: 1em;
+        /* Adjust padding for smaller screens */
+    }
+}
+
+
+
+.food-images-items:hover {
+    transform: scale(1.02);
+    transition: all ease;
+    border-radius: 1em;
+    box-shadow: 0 0 5px rgb(136, 219, 140);
+}
+
+p {
+    margin: 1em 0;
+}
+
+/* || FOOTER */

@@ -1,0 +1,501 @@
+@import url("reset.css");
+
+/*:root{
+
+}*/
+
+/*Things to "remember" */
+
+/* main axis is defined by the flex-direction property,*/
+
+/* flex-wrap property determines how your flex items behave when the flex container is too small.*/
+
+/* wrap will allow the items to wrap to the next row or column.*/
+
+/* nowrap (default) will prevent your items from wrapping and shrink them if needed.*/
+
+/* justify-content property determines how the items inside a flex container are positioned along the main axis, affecting their position and the space around them.*/
+
+/*align-items property positions the flex content along the cross axis*/
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,700;0,900;1,800&display=swap');
+
+
+/* || Variables  */
+
+:root {
+    /* Typography */
+
+    --header-font-family: 'Source Sans 3',
+        sans-serif;
+
+    --font-size-navigator: 1.3rem;
+    --font-size-button: 1.1rem;
+    --font-size-introduction-text: 1.1rem;
+    --font-size-quote: 2.5rem;
+    --font-size-quote-author: 1rem;
+
+    --font-weight-navigator: 700;
+
+    /* COLORS */
+    --main-color: #b59f58;
+    --main-color-hover: #cfee1d;
+    --font-color-navigator: var(--main-color);
+    --font-color-navigator-hover: var(--main-color-hover);
+    --font-color-main: var(--main-color);
+    --font-color-button: var(--main-color);
+    --font-color-button-hover: var(--main-color-hover);
+    --font-color-footer: white;
+    --font-color-footer-hover: var(--main-color-hover);
+
+
+    --border-color-button-hover: var(--main-color-hover);
+
+
+
+    --background-color-header: black;
+    --background-color-main: orange;
+    --background-color-footer: orange;
+    --background-color-introduction-container: rgba(0, 0, 0, 0.3);
+    --background-color-features-container: rgba(127, 125, 125, 0.2);
+    --background-color-hamburger-container: radial-gradient(circle, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    --background-color-button: black;
+    --background-color-call-container: #4d0b0b;
+    --background-color-call-items-container: #202020;
+    --background-color-hamburger: var(--main-color);
+
+
+    /* shadows*/
+
+    --box-shadow-introduction-container: 0 0 1em  var(--main-color);;
+    --box-shadow-features-images-hover: 0 0 2em  var(--main-color);;
+    --box-shadow-button-hover: 0 0 0.6em var(--main-color-hover);;
+
+
+    --text-shadow-nav: 0 0 5px rgb(181, 159, 88), 0 0 12px rgb(81, 159, 88), 0 0 20px rgb(81, 159, 88);
+    --text-shadow-introduction: 0 0 0.8em rgb(255, 255, 255);
+
+
+    /*  BORDERS */
+
+    --border-button: 0.2em solid  var(--main-color);;
+    --border-features-images: 0.3em solid  var(--main-color);;
+
+
+
+    --main-background-image: url("https://www.monsterhunterworld.com/images/common/bg_page.jpg");
+
+    /*Transitions*/
+
+    --transitions-hamburger-menu: 0.3s ease;
+
+
+}
+
+
+
+
+body {
+    background-image: var(--main-background-image);
+    /*background-image: url("resources/background-image.jpg");*/
+    background-attachment: fixed;
+
+}
+
+/* || HEADER  */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--background-color-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+
+}
+
+/* || Logo ||  */
+
+#logo {
+    box-sizing: content-box;
+    width: 5em;
+    margin-left: 3rem;
+    padding: 1em;
+
+}
+
+/* || NAV BAR ||  */
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 1.5em;
+    gap: 1em;
+}
+
+.nav-link {
+    font-weight: var(--font-weight-navigator);
+    font-size: var(--font-size-navigator);
+    font-family: var(--header-font-family);
+    color: var(--font-color-navigator);
+}
+
+.nav-link:hover {
+    color: var(--font-color-navigator-hover);
+    text-shadow: var(--text-shadow-nav);
+}
+
+/* || HAMBURGER MENU BAR ||  */
+
+#hamburger-menu {
+    display: none;
+}
+
+@media screen and (max-width: 640px) {
+
+    #logo {
+        box-sizing: content-box;
+        padding: 2em;
+        padding-left: 16em;
+        transition: var(--transitions-hamburger-menu);
+
+    }
+
+    .nav-bar {
+        display: none;
+    }
+
+    #hamburger-menu {
+        z-index: 2;
+        display: block;
+        margin-top: 2em;
+    }
+
+    #hamburger-menu-bar {
+        width: 45px;
+        height: 40px;
+        margin: 30px 0 20px 20px;
+        cursor: pointer;
+    }
+
+    .bar {
+        height: 5px;
+        width: 100%;
+        background-color: var(--background-color-hamburger);
+        display: block;
+        border-radius: 5px;
+        transition: var(--transitions-hamburger-menu);
+    }
+
+    #bar1 {
+        transform: translateY(-4px);
+    }
+
+    #bar3 {
+        transform: translateY(4px);
+    }
+
+    .nav-hamburger-menu-bar {
+        transition: var(--transitions-hamburger-menu);
+        display: none;
+    }
+
+    .nav-hamburger-menu-bar ul {
+        padding: 0 22px;
+    }
+
+    .nav-hamburger-menu-bar li {
+        list-style: none;
+        padding: 12px 0;
+    }
+
+    .nav-hamburger-menu-bar li a {
+        color: var(--font-color-navigator);
+        font-size: 20px;
+    }
+
+    .nav-hamburger-menu-bar li a:hover {
+        font-weight: bold;
+        color: var(--font-color-navigator-hover);
+        text-shadow: var(--text-shadow-nav);
+    }
+
+    .menu-bg,
+    #hamburger-menu {
+        top: 0;
+        left: 0;
+        position: absolute;
+    }
+
+    .menu-bg {
+        z-index: 1;
+        width: 0;
+        height: 0;
+        margin: 30px 0 20px 20px;
+        background: var(--background-color-hamburger-container);
+        border-radius: 50%;
+        transition: var(--transitions-hamburger-menu);
+    }
+
+    .change {
+        display: block;
+    }
+
+    .change .bar {
+        background-color: var(--background-color-hamburger);
+    }
+
+    .change #bar1 {
+        transform: translateY(4px) rotateZ(-45deg);
+    }
+
+    .change #bar2 {
+        opacity: 0;
+    }
+
+    .change #bar3 {
+        transform: translateY(-6px) rotateZ(45deg);
+    }
+
+    .change-bg {
+        width: 520px;
+        height: 460px;
+        transform: translate(-60%, -30%);
+    }
+
+}
+
+
+/* || Main  */
+
+
+.main {
+    color: var(--font-color-main);
+}
+
+/* || Introduction Section ||  */
+
+.introduction-container {
+    background-color: var(--background-color-introduction-container);
+    box-shadow: var(--box-shadow-introduction-container);
+    display: flex;
+    margin: 12rem 6rem;
+    border-radius: 1.5em;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .introduction-container {
+        flex-direction: column;
+        margin: 12rem 3rem;
+    }
+}
+
+
+.introduction-image-container {
+    margin: 2em;
+    flex: 1;
+}
+
+.introduction-text-container {
+    margin: 2em;
+    flex: 1;
+}
+
+.introduction-image {
+    min-width: 15em;
+}
+
+
+.introduction-title {
+    text-shadow: var(--text-shadow-introduction);
+    text-align: center;
+}
+
+.introduction-text {
+    margin-top: 1em;
+    font-size: var(--font-size-introduction-text);
+    line-height: 1.4em;
+    margin-bottom: 3em;
+}
+
+.sign-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color-button);
+    background-color: var(--background-color-button);
+    border: var(--border-button);
+    cursor: pointer;
+    border-radius: 2em;
+    width: 10em;
+    height: 3em;
+    margin: 2em auto;
+    font-size: var(--font-size-button);
+}
+
+.sign-button:hover {
+    color: var(--font-color-button-hover);
+    border-color: var(--border-color-button-hover);
+    transform: translateY(-3%);
+    box-shadow: var(--box-shadow-button-hover);
+}
+
+/* || Features Section ||  */
+
+
+.features-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--background-color-features-container);
+    padding: 2em 0;
+    margin-bottom: 2em;
+    align-items: center;
+
+
+
+}
+
+.features-items-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6em;
+
+
+}
+
+.features-images {
+    width: 12em;
+    height: 14em;
+    object-fit: cover;
+    border: var(--border-features-images);
+    border-radius: 1.5em;
+    transition: 0.3s;
+}
+
+.features-images:hover {
+
+    border: 0.3em solid var(--font-color-navigator-hover);
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow-features-images-hover);
+
+
+}
+
+
+.feature-title {
+    margin-bottom: 1em;
+}
+
+.feature-text {
+    margin-top: 1em;
+    padding-left: 2.5em;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: bold;
+
+
+}
+
+/*/* || Quote  ||  */
+
+.quote-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-top: 3em;
+}
+
+
+.quote {
+    padding-left: 1.5em;
+    font-size: var(--font-size-quote);
+    font-style: italic;
+
+}
+
+
+
+.quote-author {
+    font-size: var(--font-size-quote-author);
+    font-weight: 900;
+    margin-top: 2em;
+}
+
+
+
+.feature-title,
+.call-title,
+.introduction-title {
+
+    font-weight: 900;
+    font-size: 2rem;
+
+}
+
+
+
+
+
+/* || Call to action Section ||  */
+.call-container {
+    display: flex;
+    margin-top: 6em;
+    background-color: var(--background-color-call-container);
+    justify-content: center;
+    align-items: center;
+
+}
+
+.call-items-container {
+    width: 65%;
+    margin: 2em 0;
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--background-color-call-items-container);
+    border-radius: 1.5em;
+
+}
+
+.call-text {
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+}
+
+
+
+/*/* || Footer  ||  */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--background-color-header);
+    color: var(--font-color-footer);
+    padding: 2em;
+
+}
+
+.github-link {
+
+    color: var(--font-color-footer);
+}
+
+.github-link:hover {
+
+    color: var(--font-color-footer-hover);
+}
