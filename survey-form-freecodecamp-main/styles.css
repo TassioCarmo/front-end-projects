@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+
+:root {
+    --color-white: #ffffff;
+    --color-darkblue-alpha: rgba(154, 153, 151, 0.549);
+    --color-green: #37af65;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: var(--color-white);
+    margin: 0;
+    background-image: linear-gradient(115deg, rgba(1, 1, 23, 0.8),
+            rgba(46, 46, 50, 0.7)),
+        url(https://res.cloudinary.com/practicaldev/image/fetch/s--9YIHYb-S--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/64axiiy4wwz3x7emd7c2.png);
+
+}
+
+#title,
+#description {
+    text-align: center;
+}
+
+#title {
+    margin-top: 3rem;
+}
+
+#description {
+    font-style: italic;
+}
+
+
+label {
+    display: flex;
+}
+
+div input{
+    display: inline-block;
+}
+
+
+button {
+    border: none;
+}
+
+.container {
+    width: 100%;
+    margin: 3.125rem auto 0 auto;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+/* form */
+
+form {
+    background: var(--color-darkblue-alpha);
+    padding: 2.5rem 0.625rem;
+    border-radius: 0.25rem;
+}
+
+/*input*/
+
+
+.form-control {
+    width: 100%;
+    height: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 480px) {
+    form {
+        padding: 2.5rem;
+    }
+}
+
+
+.checkbox-input{
+    display: inline-block;
+}
+
+
+
+#additional-comments{
+    margin-bottom: 0.2rem;
+    min-height: 120px;
+    width: 100%;
+    padding: 0.625rem;
+    resize: vertical;
+    margin-bottom: 1rem;
+    
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--color-green);
+    color: inherit;
+    border-radius: 2px;
+    cursor: pointer;  
+}
